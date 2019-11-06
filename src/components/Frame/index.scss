@@ -1,0 +1,21 @@
+.ant-layout{
+    height: 100%;;
+    .qf-header{
+        height:64px;
+        padding:0 16px;
+        background: #fff;
+        border-bottom: 1px solid #dedede;
+        .qf-logo{
+            height:50px;
+            img{
+                height:100%;
+            }
+        }
+    }
+    .ant-layout-has-sider{
+        height:100%;
+        .ant-layout-content{
+            height:100%;
+        }
+    }
+}
