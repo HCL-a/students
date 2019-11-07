@@ -9,7 +9,9 @@ const isDev = process.env.NODE_ENV === "development"
 const service = axios.create({
     baseURL: isDev? "http://rap2api.taobao.org/app/mock/235428" : ''
 })
-
+const service2 = axios.create({
+    baseURL: isDev? "http://rap2api.taobao.org/app/mock/235428" : ''
+})
 
 //axios的拦截器 （请求之前的拦截、响应之后的拦截）
 //请求之前的拦截作用： 可以在每次发送请求之前，可以在请求头上面携带一些数据传送给后端。
@@ -37,4 +39,11 @@ export const getArticle = (offset,limited)=>{
 
 export const deleteArticleById = (offset,limited)=>{
     return service.post("api/article/list",{offset,limited})
+}
+
+
+
+//用户登录接口
+export const requestLogin = (loginInfo)=>{  
+    return service2.post(`api/article/user`,loginInfo)
 }

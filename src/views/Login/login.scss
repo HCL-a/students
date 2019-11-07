@@ -1,0 +1,7 @@
+.qf-from{
+    width:500px;
+    position: fixed;
+    left:50%;
+    top:50%;
+    transform: translate3d(-50%,-50%,0)  //3d可以开启 css3的GPU加速
+}
