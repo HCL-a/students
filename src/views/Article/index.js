@@ -95,15 +95,15 @@ export default class ArticleList extends Component {
   
     showDeleteArticleModel = (record)=>{
       // 弹出对话框  但是考虑到细节  点击确定的时候弹框里面也消失了
-      Modal.confirm({
-        title:"注意!要删除了",
-        content: <Text>确定要删除<Text type="danger">{record.title}</Text>吗？</Text>,
-        onOk:()=>{
-          deleteArticleById(record.id).then(res=>{
-            console.log("res",res)
-          })
-        }
-      })
+      // Modal.confirm({
+      //   title:"注意!",
+      //   content: <Text>确定要删除<Text type="danger">{record.title}</Text>吗？</Text>,
+      //   onOk:()=>{
+      //     deleteArticleById(record.id).then(res=>{
+      //       console.log("res",res)
+      //     })
+      //   }
+      // })
 
       //更改组件状态
       this.setState({
@@ -173,23 +173,25 @@ export default class ArticleList extends Component {
         isDeleteArticleModelShow:false
       })
     }
-    // onOk = ()=>{
-    //   this.setState({deleteArticleConfirmLoading:true})
-    //   deleteArticleById(this.state.isDeleteArticleId)
-    //     .then(res=>{
-    //       //需要跟产品经理进行协调
-    //       this.setState({
-    //         offset:0
-    //       },()=>{
-    //         this.getData()  
-    //       })
-    //     }).finally(()=>{
-    //       this.setState({
-    //         deleteArticleConfirmLoading:false,
-    //         isDeleteArticleModelShow:false
-    //       })
-    //     })
-    // }
+    onOk = ()=>{
+      // console.log(this.state.isDeleteArticleId)
+      this.setState({deleteArticleConfirmLoading:true})
+      deleteArticleById(this.state.isDeleteArticleId)
+        .then(res=>{
+          // alert(res)
+          //需要跟产品经理进行协调
+          this.setState({
+            offset:0
+          },()=>{
+            this.getData()  
+          })
+        }).finally(()=>{
+          this.setState({
+            deleteArticleConfirmLoading:false,
+            isDeleteArticleModelShow:false
+          })
+        })
+    }
     render() {
         return (
             <div>
@@ -219,7 +221,7 @@ export default class ArticleList extends Component {
                       cancelText={"点错了，再看看"}
                       okText={"拜拜~"}
                       onCancel={this.onCancel}
-                    //   onOk={this.onOk}
+                      onOk={this.onOk}
                       confirmLoading={this.state.deleteArticleConfirmLoading}
                     >
                      {this.state.deleteArticleTitle}

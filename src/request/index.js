@@ -24,6 +24,7 @@ service.interceptors.request.use(config=>{
 
 //响应之后的拦截操作  根据后端返回给你的状态码进行业务操作判断。
 service.interceptors.response.use(res=>{
+    // console.log(res.data.code)
     if(res.data.code === 200){
         return res.data.data;
     }else{
@@ -32,9 +33,10 @@ service.interceptors.response.use(res=>{
 })
 
 export const getArticle = (offset,limited)=>{
-    return service.post("api/article/list",{offset,limited})
+    return service.post("/api/article/list",{offset,limited})
 }
 
-export const deleteArticleById = (offset,limited)=>{
-    return service.post("api/article/list",{offset,limited})
+export const deleteArticleById=()=>{
+    // console.log(id)
+    return service.post(`/api/article/list/date/`)
 }
