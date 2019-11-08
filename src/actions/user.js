@@ -1,11 +1,11 @@
 
 import {requestLogin} from "../request"
 import actionTypes from "./actionTypes"
-const startLogin = ()=>{
-    return {
-        type:actionTypes.START_LOGIN
-    }
-}
+// const startLogin = ()=>{
+//     return {
+//         type:actionTypes.START_LOGIN
+//     }
+// }
 const loginSuccess = (userInfo)=>{
     return {
         type:actionTypes.LOGIN_SUCCESS,

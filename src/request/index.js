@@ -37,8 +37,8 @@ export const getArticle = (offset,limited)=>{
     return service.post("api/article/list",{offset,limited})
 }
 
-export const deleteArticleById = (offset,limited)=>{
-    return service.post("api/article/list",{offset,limited})
+export const deleteArticleById = ()=>{
+    return service.post("api/article/list")
 }
 
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Menu, Icon,Button, Radio,} from 'antd'
+import { Layout, Menu, Icon,Radio,} from 'antd'
 import {withRouter} from "react-router-dom"
 import {connect} from "react-redux"
 import Logo from "./logo.png"
